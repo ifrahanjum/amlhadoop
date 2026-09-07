@@ -1,0 +1,7 @@
+version: '3.8'
+services:
+  aml-classifier:
+    build: .
+    volumes:
+      - ./:/app
+    restart: "no"

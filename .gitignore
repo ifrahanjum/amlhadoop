@@ -21,3 +21,22 @@ __pycache__/
 *.pth
 *.pt
 datanode*_data/
+# Large datasets and report outputs (>100MB limit)
+aml_fraud_report.txt
+scored_fraud_report.txt
+
+# Virtual Environment & HDFS Data Nodes
+aml_env/
+datanode1_data/
+datanode2_data/
+datanode3_data/
+
+# Python/Docker temporary files
+__pycache__/
+*.log
+.DS_Store
+
+# Hadoop runtime & model binaries
+/output/
+hadoop_output.csv
+*.pt
