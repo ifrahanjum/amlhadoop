@@ -1,0 +1,23 @@
+# Privacy & Security (Block credentials and environment variables)
+.env
+*.pem
+*.key
+secrets/
+
+# Data Privacy (Block raw, processed, and extracted logs/data)
+*.txt
+*.csv
+*.json
+*.log
+*.dat
+
+# Virtual Environments (Block massive system-specific binaries)
+aml_env/
+venv/
+__pycache__/
+*.pyc
+
+# ML Models (Block weights to save space, unless explicitly releasing them)
+*.pth
+*.pt
+datanode*_data/

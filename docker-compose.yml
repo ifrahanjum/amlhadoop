@@ -1,0 +1,99 @@
+services:
+  namenode:
+    image: apache/hadoop:3.5.0
+    container_name: hadoop-namenode
+    hostname: namenode
+    command: ["hdfs", "namenode"]
+    ports:
+      - "9870:9870"
+      - "9000:9000"
+    volumes:
+      - namenode_data:/tmp/hadoop-root/dfs/name
+      - ./config:/opt/hadoop/etc/hadoop:ro
+    networks:
+      - hadoop
+
+  datanode1:
+    image: apache/hadoop:3.5.0
+    container_name: hadoop-datanode1
+    hostname: datanode1
+    command: ["hdfs", "datanode"]
+    volumes:
+      - ./datanode1_data:/tmp/hadoop-root/dfs/data
+      - ./config:/opt/hadoop/etc/hadoop:ro
+    networks:
+      - hadoop
+
+  datanode2:
+    image: apache/hadoop:3.5.0
+    container_name: hadoop-datanode2
+    hostname: datanode2
+    command: ["hdfs", "datanode"]
+    volumes:
+      - ./datanode2_data:/tmp/hadoop-root/dfs/data
+      - ./config:/opt/hadoop/etc/hadoop:ro
+    networks:
+      - hadoop
+
+  datanode3:
+    image: apache/hadoop:3.5.0
+    container_name: hadoop-datanode3
+    hostname: datanode3
+    command: ["hdfs", "datanode"]
+    volumes:
+      - ./datanode3_data:/tmp/hadoop-root/dfs/data
+      - ./config:/opt/hadoop/etc/hadoop:ro
+    networks:
+      - hadoop
+
+  resourcemanager:
+    image: apache/hadoop:3.5.0
+    container_name: hadoop-resourcemanager
+    hostname: resourcemanager
+    command: ["yarn", "resourcemanager"]
+    ports:
+      - "8088:8088"
+    volumes:
+      - ./config:/opt/hadoop/etc/hadoop:ro
+    networks:
+      - hadoop
+
+  nodemanager1:
+    image: apache/hadoop:3.5.0
+    container_name: hadoop-nodemanager1
+    hostname: nodemanager1
+    command: ["yarn", "nodemanager"]
+    volumes:
+      - ./config:/opt/hadoop/etc/hadoop:ro
+    networks:
+      - hadoop
+
+  nodemanager2:
+    image: apache/hadoop:3.5.0
+    container_name: hadoop-nodemanager2
+    hostname: nodemanager2
+    command: ["yarn", "nodemanager"]
+    volumes:
+      - ./config:/opt/hadoop/etc/hadoop:ro
+    networks:
+      - hadoop
+
+  nodemanager3:
+    image: apache/hadoop:3.5.0
+    container_name: hadoop-nodemanager3
+    hostname: nodemanager3
+    command: ["yarn", "nodemanager"]
+    volumes:
+      - ./config:/opt/hadoop/etc/hadoop:ro
+    networks:
+      - hadoop
+
+networks:
+  hadoop:
+    driver: bridge
+
+volumes:
+  namenode_data:
+  datanode1_data:
+  datanode2_data:
+  datanode3_data:
