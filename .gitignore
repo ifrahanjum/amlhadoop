@@ -1,42 +1,9 @@
-# Privacy & Security (Block credentials and environment variables)
-.env
-*.pem
-*.key
-secrets/
-
-# Data Privacy (Block raw, processed, and extracted logs/data)
+aml_env/
 *.txt
-*.csv
-*.json
-*.log
-*.dat
-
-# Virtual Environments (Block massive system-specific binaries)
-aml_env/
-venv/
 __pycache__/
-*.pyc
-
-# ML Models (Block weights to save space, unless explicitly releasing them)
-*.pth
-*.pt
-datanode*_data/
-# Large datasets and report outputs (>100MB limit)
-aml_fraud_report.txt
-scored_fraud_report.txt
-
-# Virtual Environment & HDFS Data Nodes
-aml_env/
+.ipynb_checkpoints/
+.streamlit/
 datanode1_data/
 datanode2_data/
 datanode3_data/
-
-# Python/Docker temporary files
-__pycache__/
-*.log
-.DS_Store
-
-# Hadoop runtime & model binaries
-/output/
-hadoop_output.csv
-*.pt
+*.txt
